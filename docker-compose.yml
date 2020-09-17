@@ -1,0 +1,49 @@
+version: "3"
+
+# Serviços
+services:
+  server:
+    container_name: api
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3333:3333"
+    command: yarn dev:server
+    networks:
+      - private_network
+  database:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "docker"
+      POSTGRES_DB: "devplace"
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - private_network
+  redis:
+    container_name: redis
+    image: redis:alpine
+    environment:
+      ALLOW_EMPTY_PASSWORD: "no"
+      REDIS_PASSWORD: "docker"
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - private_network
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - private_network
+
+# Rede Privada entre containers
+networks:
+  private_network:

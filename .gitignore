@@ -1,0 +1,40 @@
+# App
+.env
+build/*
+coverage/*
+
+# IDEs
+.idea/*
+
+## VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+## Ignore folders initial
+!api/application/interfaces/.gitkeep
+!api/application/interfaces/*
+!api/application/repositories/.gitkeep
+!api/application/repositories/*
+!api/application/services/.gitkeep
+!api/application/services/*
+!api/controllers/.gitkeep
+!api/controllers/*
+!api/middlewares/.gitkeep
+!api/middlewares/*
+!api/models/.gitkeep
+!api/models/*
+
+# Operational System
+.DS_Store
+._*
+
+# Package manager
+yarn-error.log
+node_modules/*
+yarn.lock
+
+.env
